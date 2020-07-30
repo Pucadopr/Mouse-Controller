@@ -53,9 +53,9 @@ python3 app.py --help
 ## Benchmarks
 Results obtained on my local CPU using the FP32 model;
 
-Total model load time - 0.943542 seconds
-Total inference time - 1.434543 seconds
-Total Frames per second - 10.044346
+* Total model load time - 0.943542 seconds
+* Total inference time - 1.434543 seconds
+* Total Frames per second - 10.044346
 
 ## Results
 Given that four models load together to give the total model load time, The model load time seems fair and since models are high precision. Inference time can be improved by analysing models individually and pruning to remove least efficient layers or neurons to make them more efficient.
