@@ -38,7 +38,10 @@ pip3 install -r requirements.txt
 ```
 
 ## Demo
-After installing the requirements for this project, you can run a demo using the command below;
+After installing the requirements for this project, you can run a demo using the commands below;
+```
+cd src
+```
 
 ```
 python3 app.py --input "../bin/demo.mp4"
