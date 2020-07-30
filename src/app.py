@@ -34,10 +34,10 @@ def main():
     else:
         input_feeder = InputFeeder("video", input_file)
 
-    face_d = Face_Detector("../intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001.xml", "../models/intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001.bin", args.device, args.extension)
-    face_l = Face_Landmark_Detector("../intel/landmarks-regression-retail-0009/FP32/landmarks-regression-retail-0009.xml", "../models/intel/landmarks-regression-retail-0009/FP32/landmarks-regression-retail-0009.bin", args.device, args.extension)
-    gaze = Gaze_Estimator("../intel/gaze-estimation-adas-0002/FP32/gaze-estimation-adas-0002.xml", "../models/intel/gaze-estimation-adas-0002/FP32/gaze-estimation-adas-0002.bin", args.device, args.extension)
-    head = Head_Pose_Estimator("../intel/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml", "../models/intel/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.bin", args.device, args.extension)
+    face_d = Face_Detector("../intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001.xml", "../intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001.bin", args.device, args.extension)
+    face_l = Face_Landmark_Detector("../intel/landmarks-regression-retail-0009/FP32/landmarks-regression-retail-0009.xml", "../intel/landmarks-regression-retail-0009/FP32/landmarks-regression-retail-0009.bin", args.device, args.extension)
+    gaze = Gaze_Estimator("../intel/gaze-estimation-adas-0002/FP32/gaze-estimation-adas-0002.xml", "../intel/gaze-estimation-adas-0002/FP32/gaze-estimation-adas-0002.bin", args.device, args.extension)
+    head = Head_Pose_Estimator("../intel/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml", "../intel/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.bin", args.device, args.extension)
 
     mouse_control = MouseController('medium', 'fast')
 
