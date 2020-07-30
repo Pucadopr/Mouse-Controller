@@ -48,42 +48,32 @@ def main():
     gaze.load_model()
     head.load_model()
 
-    counter = 0
-    frame_count = 0
-    for r, frame in input_feeder.next_batch():
-        if not r:
+    for _, frame in input_feeder.next_batch():
+        if not _:
             break;
 
         if frame is not None:
-            frame_count += 1
-            if frame_count%5 == 0:
-                cv2.imshow('video', cv2.resize(frame, (500, 500)))
-        
-            key = cv2.waitKey(60)
+            cv2.imshow('video', cv2.resize(frame, (500, 500)))      
+            key = cv2.waitKey(33)
 
             crop_face, face_coords = face_d.predict(frame, 0.5)
             if isinstance(crop_face, int):
                 return print("No face in frame")
-                if key == 10:
+                if key == 27:
                     break
-
                 continue
             
             head_pose = head.predict(crop_face)
-            
-            le_eye, ri_eye, eye_coords = face_l.predict(crop_face)
-            
+            le_eye, ri_eye, eye_coords = face_l.predict(crop_face)   
             new_mouse_coord, gaze_vector = gaze.predict(le_eye, ri_eye, head_pose)
-            counter = counter + 1
-
-            if frame_count%5 == 0:
-                mouse_control.move(new_mouse_coord[0], new_mouse_coord[1])    
             
-            if key == 10:
+            mouse_control.move(new_mouse_coord[0], new_mouse_coord[1])    
+            
+            if key == 27:
                 break
 
     cv2.destroyAllWindows()
-    inputFeeder.close()
+    input_feeder.close()
         
 if __name__ == '__main__':
     main()
