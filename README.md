@@ -61,6 +61,9 @@ The different command line arguments include;
 -e, --extension, which is used to specify the path to cpu extension (Optional)
 
 -d, --device, which is used to specify device to run model on, options: FPGA, GPU, MYRIAD, defaults to CPU (Optional)
+
+-v, --visualization, specify to view visualization from the other models. face for face detection, facel for face landmark, head for head pose, gaze for gaze estimation. for visualization of more than one model, seperate with a space") (Optional)
+
 ```
 
 The scripts for preprocessing the models and making inference are present in the src folder which is also where app.py file used to run project resides. In this folder, The base_model.py contains the reusable code used to instantiate the other models and also contains the methods used for processing the inputs, loading the model, making inferences. The other model files are used to process the outputs of models. input_feeder.py is used to specify type of input that inference is to be made on and the mouse_controller.py file is used for mouse movements using the gaze estimation. app.py contains the main file where all model loading takes place, inference and eventual mouse movement using the results obtained. The bin folder contains the video used for quick demo. When models are downloaded using the commands above, they are stored in a new top level intel folder.
