@@ -2,6 +2,7 @@ import cv2
 import os
 import numpy as np
 import time
+import logging as log
 from argparse import ArgumentParser
 from face_detection import Face_Detector
 from input_feeder import InputFeeder
@@ -58,7 +59,7 @@ def main():
 
             crop_face, face_coords = face_d.predict(frame, 0.5)
             if isinstance(crop_face, int):
-                return print("No face in frame")
+                log.info("No face in frame")
                 if key == 27:
                     break
                 continue

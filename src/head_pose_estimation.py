@@ -4,6 +4,7 @@ Model is used to detect the pose of the head of person in frame.
 '''
 from openvino.inference_engine import IECore, IENetwork
 import numpy as np
+import logging as log
 import cv2
 
 class Head_Pose_Estimator:
@@ -39,7 +40,7 @@ class Head_Pose_Estimator:
                 unsupported_layers.append(layer)
 
         if len(unsupported_layers) != 0:
-            return print('Please add Extension as some unsupported layers currently exist')
+            log.info('Please add Extension as some unsupported layers currently exist')
 
         self.execNetwork = self.plugin.load_network(self.network, self.device)
         self.inputBlob = next(iter(self.network.inputs))

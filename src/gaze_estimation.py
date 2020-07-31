@@ -4,6 +4,7 @@ Results from the other models are used to estimate where the person is looking.
 '''
 from openvino.inference_engine import IECore, IENetwork
 import numpy as np
+import logging as log
 import cv2
 import math
 
@@ -40,7 +41,7 @@ class Gaze_Estimator:
                 unsupported_layers.append(layer)
 
         if len(unsupported_layers) != 0:
-            return print('Please add Extension as some unsupported layers currently exist')
+            log.info('Please add Extension as some unsupported layers currently exist')
 
         self.execNetwork = self.plugin.load_network(self.network, self.device, num_requests = 1)
         self.inputBlob = [i for i in self.network.inputs.keys()]

@@ -48,9 +48,40 @@ python3 app.py --input "../bin/demo.mp4"
 ```
 
 ## Documentation
-While running the project using the command above is sufficient for a demo of project, extra arguments can be parsed also for extra features. To view arguments, Run the command below; 
+While running the project using the command above is sufficient for a demo of project, extra arguments can be parsed also for extra features. To view arguments and uses, Run the command below; 
 ```
 python3 app.py --help
+```
+
+The different command line arguments include;
+
+```
+-i, --input, which is used to specify the path to input file or "cam" to use webcam (Required)
+
+-e, --extension, which is used to specify the path to cpu extension (Optional)
+
+-d, --device, which is used to specify device to run model on, options: FPGA, GPU, MYRIAD, defaults to CPU (Optional)
+```
+
+The scripts for preprocessing the models and making inference are present in the src folder which is also where app.py file used to run project resides. In this folder, The base_model.py contains the reusable code used to instantiate the other models and also contains the methods used for processing the inputs, loading the model, making inferences. The other model files are used to process the outputs of models. input_feeder.py is used to specify type of input that inference is to be made on and the mouse_controller.py file is used for mouse movements using the gaze estimation. app.py contains the main file where all model loading takes place, inference and eventual mouse movement using the results obtained. The bin folder contains the video used for quick demo. When models are downloaded using the commands above, they are stored in a new top level intel folder.
+
+* Project Structure
+
+```
+|--bin
+    |--demo.mp4
+|--intel
+|--src
+    |--app.py
+    |--base_model.py
+    |--face_detection.py
+    |--facial_landmarks_detection.py
+    |--gaze_estimation.py
+    |--head_pose_estimation.py
+    |--input_feeder.py
+    |--mouse_controller.py
+|--README.md
+|--requirements.txt
 ```
 
 ## Benchmarks
