@@ -91,8 +91,14 @@ Results obtained on my local CPU using the FP32 model;
 * Total inference time - 1.434543 seconds
 * Total Frames per second - 10.044346
 
+Results obtained on my local CPU using the FP16 model;
+
+* Total model load time - 0.902414 seconds
+* Total inference time - 1.391234 seconds
+* Total Frames per second - 9.854323
+
 ## Results
-Given that four models load together to give the total model load time, The model load time seems fair and since models are high precision. Inference time can be improved by analysing models individually and pruning to remove least efficient layers or neurons to make them more efficient.
+The FP16 model gives inference faster than the FP32 model, this is due to the lower precision of the FP16 model. FP32 model is more accurate than the FP16 model however. Inference time can be improved however by analysing models individually and pruning to remove least efficient layers or neurons to make them more efficient.
 
 ### Edge Cases
 Application doesn't work very well in poorly lit areas as models can't pick up features properly so please use in a well lit area or environment
