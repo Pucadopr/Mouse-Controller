@@ -128,7 +128,7 @@ def main():
             else:
                 img_h = cv2.resize(frame, (500, 500))
 
-            cv2.imshow('Visualization', img_h)
+            cv2.imshow('Visuals', img_h)
 
             if f_count%5 == 0:                       
                 mouse_control.move(new_mouse_coord[0], new_mouse_coord[1])    
