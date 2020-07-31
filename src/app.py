@@ -41,10 +41,10 @@ def main():
     else:
         input_feeder = InputFeeder("video", input_file)
 
-    face_d = Face_Detector("../intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001.xml", "../intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001.bin", args.device, args.extension)
-    face_l = Face_Landmark_Detector("../intel/landmarks-regression-retail-0009/FP32/landmarks-regression-retail-0009.xml", "../intel/landmarks-regression-retail-0009/FP32/landmarks-regression-retail-0009.bin", args.device, args.extension)
-    gaze = Gaze_Estimator("../intel/gaze-estimation-adas-0002/FP32/gaze-estimation-adas-0002.xml", "../intel/gaze-estimation-adas-0002/FP32/gaze-estimation-adas-0002.bin", args.device, args.extension)
-    head = Head_Pose_Estimator("../intel/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml", "../intel/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.bin", args.device, args.extension)
+    face_d = Face_Detector("../models/intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001.xml", "../models/intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001.bin", args.device, args.extension)
+    face_l = Face_Landmark_Detector("../models/intel/landmarks-regression-retail-0009/FP32/landmarks-regression-retail-0009.xml", "../models/intel/landmarks-regression-retail-0009/FP32/landmarks-regression-retail-0009.bin", args.device, args.extension)
+    gaze = Gaze_Estimator("../models/intel/gaze-estimation-adas-0002/FP32/gaze-estimation-adas-0002.xml", "../models/intel/gaze-estimation-adas-0002/FP32/gaze-estimation-adas-0002.bin", args.device, args.extension)
+    head = Head_Pose_Estimator("../models/intel/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml", "../models/intel/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.bin", args.device, args.extension)
 
     mouse_control = MouseController('medium', 'fast')
 
@@ -100,7 +100,7 @@ def main():
                 if 'head' in visual:
                     cv2.putText(
                         preview_window, 
-                        "Pose Angles: yaw:{:.2f} | pitch:{:.2f} | roll:{:.2f}".format(head_pose[0], head_pose[1], head_pose[2]), (50, 50), 
+                        "Pose Angles: pitch:{:.2f} , roll:{:.2f} , yaw:{:.2f}".format(head_pose[0], head_pose[1], head_pose[2]), (50, 50), 
                         cv2.FONT_HERSHEY_COMPLEX, 
                         1, 
                         (0, 255, 0), 
