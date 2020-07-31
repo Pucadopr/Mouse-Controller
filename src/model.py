@@ -4,11 +4,7 @@ This is used to instantiate the face detection model downloaded from the Intel m
 Model is used to detect faces in Videos, Images or video streams
 '''
 from openvino.inference_engine import IECore
-import numpy as np
-import cv2
-import time
 import logging as log
-from pathlib import Path
 
 class Model:
     '''
@@ -51,5 +47,3 @@ class Model:
         self.outputBlob = next(iter(self.network.outputs))
         self.input_shape = self.network.inputs[self.inputBlob].shape
         self.output_shape = self.network.outputs[self.outputBlob].shape
-
-   

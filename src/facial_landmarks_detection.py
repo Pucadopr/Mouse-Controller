@@ -3,6 +3,8 @@ This is the facial landmark detection model.
 Model is used to locate the eyes of the person in frame.
 '''
 from model import Model
+import numpy as np
+import cv2
 
 class Face_Landmark_Detector(Model):
     '''

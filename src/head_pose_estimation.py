@@ -3,6 +3,8 @@ This is the head pose estimator model.
 Model is used to detect the pose of the head of person in frame.
 '''
 from model import Model 
+import numpy as np
+import cv2
 
 class Head_Pose_Estimator(Model):
     '''

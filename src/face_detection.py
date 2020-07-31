@@ -4,6 +4,8 @@ This is used to instantiate the face detection model downloaded from the Intel m
 Model is used to detect faces in Videos, Images or video streams
 '''
 from model import Model
+import cv2 
+import numpy as np
 
 class Face_Detector(Model):
     '''
